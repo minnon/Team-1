@@ -516,7 +516,7 @@ void run_demo(gpRender gr){
 	}
 	
 	/*Need to address*/
-	ai.setCurrentSector(sectors[curSector - 1]);
+	ai.setCurrentSector(sectors[curSector - 1], false);
 
 	/*Need to fix*/
 	
@@ -711,9 +711,9 @@ void run_demo(gpRender gr){
 				} else {
 					//we need to check if our ship has left the range of the space station
 					if(!check_proximity(playerent, ss_ent, 3)){
-						if(in_space_station_menu) {
-							osSprite.erase(osSprite.begin() + ss_UI.get_spriteIndex());
-						}
+						//if(in_space_station_menu) {
+							//osSprite.erase(osSprite.begin() + ss_UI.get_spriteIndex());
+						//}
 						osSprite.erase(osSprite.begin() + e_UI.get_spriteIndex());
 
 						is_space_station_in_range = false;
@@ -1308,7 +1308,7 @@ void run_demo(gpRender gr){
 					if(curSector != 7 && curSector != 8 && curSector != 9)
 					{
 						side = 3;
-												if(galaxy.getInControl(curSector-1)){
+						if(galaxy.getInControl(curSector-1)){
 							if(curSector == 4){
 								sector4ent.updateCredits(playerMapTex);
 							}
@@ -1362,7 +1362,7 @@ void run_demo(gpRender gr){
 					solar = true;
 				}
 
-				ai.setCurrentSector(sectors[curSector - 1]);
+				ai.setCurrentSector(sectors[curSector - 1], true);
 
 				
 			}
